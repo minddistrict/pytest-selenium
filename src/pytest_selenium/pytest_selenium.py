@@ -355,7 +355,7 @@ def format_log(log):
     timestamp_format = "%Y-%m-%d %H:%M:%S.%f"
     entries = [
         "{0} {1[level]} - {1[message]}".format(
-            datetime.utcfromtimestamp(entry["timestamp"] / 1000.0).strftime(
+            datetime.fromtimestamp(entry["timestamp"] / 1000.0, timezone.utc).strftime(
                 timestamp_format
             ),
             entry,
